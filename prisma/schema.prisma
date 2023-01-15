@@ -39,8 +39,6 @@ model Session {
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
-
-
 model User {
   id            String    @id @default(cuid())
   name          String?
@@ -48,8 +46,8 @@ model User {
   emailVerified DateTime?
   image         String?
   accounts      Account[]
-  sessions      Session[]
   Liste         Liste[]
+  sessions      Session[]
 }
 
 model VerificationToken {
@@ -60,36 +58,34 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-
-model Liste{
-  id            String    @id @default(cuid())
-  name          String?
-  userId        String
-  categorieId   String
-  categorie     Categorie  @relation(fields: [categorieId], references: [id])
-  listcontent   ListContentPack?
-  createdby     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+model Liste {
+  id          String           @id @default(cuid())
+  name        String?
+  userId      String
+  categorieId String
+  listcontent ListContentPack?
+  categorie   Categorie        @relation(fields: [categorieId], references: [id])
+  createdby   User             @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
-model ListContent{
-   id           String    @id @default(cuid())
-   contentPackId      String 
-   image        String
-   name         String
-   listcontentpack     ListContentPack @relation(fields: [contentPackId], references: [id])
+model ListContent {
+  id              String          @id @default(cuid())
+  image           String
+  name            String
+  contentPackId   String
+  listcontentpack ListContentPack @relation(fields: [contentPackId], references: [id])
 }
 
-model ListContentPack{
-   id           String    @id @default(cuid())
-   listId       String @unique
-   liste Liste @relation(fields: [listId], references: [id])
-   image        String
-
-   listContent ListContent[]
+model ListContentPack {
+  id          String        @id @default(cuid())
+  listId      String        @unique
+  image       String
+  listContent ListContent[]
+  liste       Liste         @relation(fields: [listId], references: [id])
 }
 
-model Categorie{
- id           String    @id @default(cuid())
- name         String?
- liste Liste[]
+model Categorie {
+  id    String  @id @default(cuid())
+  name  String?
+  liste Liste[]
 }
