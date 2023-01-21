@@ -17,7 +17,7 @@ export const exampleRouter = createTRPCRouter({
   allLists: publicProcedure.query(({ ctx }) => {
     return ctx.prisma.liste.findMany({
       include: {
-        listcontent: true,
+        listcontentpack: true,
       },
     });
   }),

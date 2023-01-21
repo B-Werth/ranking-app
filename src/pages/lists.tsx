@@ -35,7 +35,7 @@ const Lists: NextPage = () => {
                     <div key={Liste.name} className="group relative">
                       <div className="sm:aspect-w-2 sm:aspect-h-1 lg:aspect-w-1 lg:aspect-h-1 relative h-80 w-full overflow-hidden rounded-lg bg-white group-hover:opacity-75 sm:h-64">
                         <img
-                          src={Liste.listcontent?.image}
+                          src={Liste.listcontentpack?.image}
                           className="h-full w-full object-cover object-center"
                         />
                       </div>
