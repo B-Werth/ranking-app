@@ -22,6 +22,19 @@ export const exampleRouter = createTRPCRouter({
     });
   }),
 
+  content: publicProcedure
+    .input(z.object({ id: z.string() }))
+    .query(({ input, ctx }) => {
+      return ctx.prisma.listContentPack.findUnique({
+        where: {
+          listId: input.id,
+        },
+        include: {
+          listContent: true,
+        },
+      });
+    }),
+
   getSecretMessage: protectedProcedure.query(() => {
     return "you can now see this secret message!";
   }),

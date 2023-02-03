@@ -13,6 +13,12 @@ const Home: NextPage = () => {
 
   const { id } = router.query;
 
+  const hello = api.example.content.useQuery({
+    id: id as string,
+  });
+
+  console.log(hello.data);
+
   return (
     <>
       <Head>
