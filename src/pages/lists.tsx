@@ -18,16 +18,19 @@ const Lists: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header className="bg-indigo-500 shadow">
-        <p></p>
         <div className="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold tracking-tight text-gray-900">
             Lists: Moin
           </h1>
         </div>
       </header>
+
       <div className="bg-gray-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
+            <button className="rounded bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700">
+              + add List
+            </button>
             <h2 className="text-2xl font-bold text-gray-900">Collections</h2>
 
             <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
